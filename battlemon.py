@@ -18,11 +18,23 @@ MOVE_THUNDERSHOCK = 6
 MOVE_FISSURE = 7
 MOVES = ["basic-attack", "attack-up", "defend", "heal", "blind-rage", "leech-attack", "thundershock", "fissure"]
 
+BASIC_ATTACK_DESC = "A simple attack with a 90% chance to hit."
+ATTACK_UP_DESC = "Doubles the damage the mon deals next round."
+DEFEND_DESC = "Halves the damage the mon receives this round. Is always added to the damage calculation, regardless of the speed stat."
+HEAL_DESC = "Restore health points.Can only be used once in a battle."
+BLIND_RAGE_DESC = "Attack with triple damage, but 50% chance to hit itself instead."
+LEECH_ATTACK_DESC = "Attack with 1/4 damage, but gain it as health points."
+THUNDERSHOCK_DESC = "Attack with 3/4 damage, never misses."
+FISSURE_DESC = "Attack that can instantly defeat the other mon, but only has a 5% chance of hitting its objective."
+MOVE_DESCRIPTIONS = [BASIC_ATTACK_DESC, ATTACK_UP_DESC, DEFEND_DESC, HEAL_DESC, BLIND_RAGE_DESC, LEECH_ATTACK_DESC, THUNDERSHOCK_DESC, FISSURE_DESC]
+
 TYPE_CHART = [
     [1,  1,   1,   1 ],
     [1, 0.5, 0.5,  2 ],
     [1,  2,  0.5, 0.5],
     [1, 0.5,  2,  0.5]]
+
+random.seed(40)
 
 mon1 = None
 mon2 = None
@@ -92,7 +104,32 @@ class Mon:
 
 # COMMANDS FUNCTIONS
 def help():
-    print("I will write this later")
+    print("""- help
+    - Help command with no arguments. Prints the possible commands the user can
+use and their descriptions in a list
+- status
+    - Display the current statuses of the battling mons. Print their names, types, and
+current hp points
+- info <arg1>
+    - Display the full stats of the given mon, where <arg1> is their name. Print its
+name, type, hp, attack, defense, speed, and list of moves. If no argument is
+given, default to the user’s mon.
+- movelist <arg1>
+    - Print the movelist of the given mon, where <arg1> is their name. Print the name
+of each move and its description. If no argument is given, default to the user’s
+mon
+- use <arg1>
+    - <arg1> must be given and must be the name of a valid attack in the user’s mon’s
+movelist. The user’s mon will then use that attack and advance the turns of the
+battle
+    - If the given attack cannot be used, notify the user and ask for a valid attack,
+listing the names of the moves they can use.
+- surrender
+    - The user immediately loses the battle
+- quit
+    - Exit the program
+- restart
+    - Restart the battle with the same mons""")
 
 def status():
     print("Mon1: " + mon1.name + " Type: " + TYPES[mon1.type] + " Hp: " + str(mon1.hp))
@@ -340,12 +377,7 @@ if __name__ == "__main__":
                 p2_move = MOVES.index(p2_move)
 
             winner = play_turn(p1_move, p2_move)
+            if winner != 0:
+                print("Player " + str(winner) + "wins!")
 
         play(1)
-
-            
-        
-
-    
-
-
