@@ -1,0 +1,14 @@
+{
+    "Name": "charizord",
+    "Type": "Fire",
+    "Hp": 1000,
+    "Attack": 420,
+    "Defense": 50,
+    "Speed": 250,
+    "Moves": [
+    { "Name": "basic-attack" },
+    { "Name": "defend" },
+    { "Name": "leech-attack" },
+    { "Name": "fissure" }
+    ]
+}

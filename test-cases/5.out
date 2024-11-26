@@ -1,0 +1,30 @@
+Game started
+Player1's turn
+Write your command: 
+- help
+    - Help command with no arguments. Prints the possible commands the user can
+use and their descriptions in a list
+- status
+    - Display the current statuses of the battling mons. Print their names, types, and
+current hp points
+- info <arg1>
+    - Display the full stats of the given mon, where <arg1> is their name. Print its
+name, type, hp, attack, defense, speed, and list of moves. If no argument is
+given, default to the user’s mon.
+- movelist <arg1>
+    - Print the movelist of the given mon, where <arg1> is their name. Print the name
+of each move and its description. If no argument is given, default to the user’s
+mon
+- use <arg1>
+    - <arg1> must be given and must be the name of a valid attack in the user’s mon’s
+movelist. The user’s mon will then use that attack and advance the turns of the
+battle
+    - If the given attack cannot be used, notify the user and ask for a valid attack,
+listing the names of the moves they can use.
+- surrender
+    - The user immediately loses the battle
+- quit
+    - Exit the program
+- restart
+    - Restart the battle with the same mons
+Write your command: 

@@ -1,0 +1,14 @@
+{
+    "Name": "nikachu",
+    "Type": "Normal",
+    "Hp": 560,
+    "Attack": 256,
+    "Defense": 100,
+    "Speed": 365,
+    "Moves": [
+    { "Name": "basic-attack" },
+    { "Name": "defend" },
+    { "Name": "thundershock" },
+    { "Name": "attack-up" }
+    ]
+}

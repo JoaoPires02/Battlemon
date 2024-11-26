@@ -1,0 +1,20 @@
+Game started
+Player1's turn
+Write your command: 
+basic-attack - A simple attack with a 90% chance to hit.
+heal - Restore health points.Can only be used once in a battle.
+defend - Halves the damage the mon receives this round. Is always added to the damage calculation, regardless of the speed stat.
+leech-attack - Attack with 1/4 damage, but gain it as health points.
+Write your command: 
+basic-attack - A simple attack with a 90% chance to hit.
+heal - Restore health points.Can only be used once in a battle.
+defend - Halves the damage the mon receives this round. Is always added to the damage calculation, regardless of the speed stat.
+leech-attack - Attack with 1/4 damage, but gain it as health points.
+Write your command: 
+basic-attack - A simple attack with a 90% chance to hit.
+leech-attack - Attack with 1/4 damage, but gain it as health points.
+defend - Halves the damage the mon receives this round. Is always added to the damage calculation, regardless of the speed stat.
+attack-up - Doubles the damage the mon deals next round.
+Write your command: 
+Error: Mon doesn't exist.
+Write your command: 

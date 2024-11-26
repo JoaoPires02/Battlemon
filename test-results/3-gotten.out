@@ -1,0 +1,11 @@
+Game started
+Player1's turn
+Write your command: 
+Mon: RandMon1 Type: Grass Hp: 149 Attack: 135 Defense: 9 Speed: 62 Moves: basic-attack, heal, defend, leech-attack
+Write your command: 
+Mon: RandMon1 Type: Grass Hp: 149 Attack: 135 Defense: 9 Speed: 62 Moves: basic-attack, heal, defend, leech-attack
+Write your command: 
+Mon: RandMon2 Type: Water Hp: 71 Attack: 191 Defense: 113 Speed: 7 Moves: basic-attack, leech-attack, defend, attack-up
+Write your command: 
+Error: Mon doesn't exist.
+Write your command: 

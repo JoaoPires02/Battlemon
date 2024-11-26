@@ -36,11 +36,11 @@ TYPE_CHART = [
 
 random.seed(40)
 
-mon1 = None
-mon2 = None
-mon1_restart = None
-mon2_restart = None
-winner = 0
+global mon1
+global mon2 
+global mon1_restart
+global mon2_restart
+global winner
 
 def get_type_id(type):
     match type:
@@ -52,6 +52,27 @@ def get_type_id(type):
             return TYPE_WATER
         case "Grass":
             return TYPE_GRASS
+        case _:
+            return None
+        
+def get_move_id(move_name):
+    match move_name:
+        case "basic-attack":
+            return MOVE_BASIC_ATTACK
+        case "attack-up":
+            return MOVE_ATTACK_UP
+        case "defend":
+            return MOVE_DEFEND
+        case "heal":
+            return MOVE_HEAL
+        case "blind-rage":
+            return MOVE_BLIND_RAGE
+        case "leech-attack":
+            return MOVE_LEECH_ATTACK
+        case "thundershock":
+            return MOVE_THUNDERSHOCK
+        case "fissure":
+            return MOVE_FISSURE
         case _:
             return None
 
@@ -81,6 +102,7 @@ class Mon:
             self.attack = mon_data["Attack"]
             self.defense = mon_data["Defense"]
             self.speed = mon_data["Speed"]
+            self.moves = []
             for e in mon_data["Moves"]:
                 self.moves += [e["Name"]]
 
@@ -145,11 +167,13 @@ def info(mon):
     
 def movelist(mon):
     if mon1.name == mon:
-        for move in mon.moves:
-            print(move)
+        for move in mon1.moves:
+            move_desc = MOVE_DESCRIPTIONS[get_move_id(move)]
+            print(move + " - " + move_desc)
     elif mon2.name == mon:
-        for move in mon.moves:
-            print(move)
+        for move in mon2.moves:
+            move_desc = MOVE_DESCRIPTIONS[get_move_id(move)]
+            print(move + " - " + move_desc)
     else:
         print("Error: Mon doesn't exist.")
 
@@ -266,7 +290,9 @@ def play_turn(mon1_move, mon2_move):
     return 0
 
 def play(current_player):
-    print("Player" + str(current_player) +"'s turn")
+    if winner == 0:
+        print("Player" + str(current_player) +"'s turn")
+
     while True:
         command = input("Write your command: \n")
         command = command.split(" ")
@@ -346,15 +372,17 @@ if __name__ == "__main__":
     mon2 = Mon("RandMon2")
 
     if len(args) > 1:
-        mon1 = mon1.import_mon(args[1])
-        mon1_restart = mon1
+        mon1.import_mon(args[1])
     if len(args) > 2:
-        mon2 = mon2.import_mon(args[2])
-        mon2_restart = mon2
-        
+        mon2.import_mon(args[2])
+
+    mon1_restart = mon1
+    mon2_restart = mon2
+            
     print("Game started")
 
     while True:
+        winner = 0
         while winner == 0:
             p1_move = play(1)
             if p1_move == 1:
