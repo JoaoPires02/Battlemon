@@ -18,3 +18,5 @@ attack-up - Doubles the damage the mon deals next round.
 Write your command: 
 Error: Mon doesn't exist.
 Write your command: 
+Unrecognized command. Use help command to display available commands.
+Write your command: 

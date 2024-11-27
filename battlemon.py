@@ -99,6 +99,7 @@ class Mon:
             self.name = mon_data["Name"]
             self.type = get_type_id(mon_data["Type"])
             self.hp = mon_data["Hp"]
+            self.current_hp = self.hp
             self.attack = mon_data["Attack"]
             self.defense = mon_data["Defense"]
             self.speed = mon_data["Speed"]
@@ -154,8 +155,8 @@ listing the names of the moves they can use.
     - Restart the battle with the same mons""")
 
 def status():
-    print("Mon1: " + mon1.name + " Type: " + TYPES[mon1.type] + " Hp: " + str(mon1.hp))
-    print("Mon2: " + mon2.name + " Type: " + TYPES[mon2.type] + " Hp: " + str(mon2.hp))
+    print("Mon1: " + mon1.name + " Type: " + TYPES[mon1.type] + " Hp: " + str(mon1.current_hp))
+    print("Mon2: " + mon2.name + " Type: " + TYPES[mon2.type] + " Hp: " + str(mon2.current_hp))
 
 def info(mon):
     if mon1.name == mon:
@@ -180,7 +181,9 @@ def movelist(mon):
         
 def use(mon, attack):
     if attack not in mon.moves:
-        print("Attack cannot be used. Choose a valid attack.\n" + movelist(mon))
+        print("Attack cannot be used. Choose a valid attack.")
+        movelist(mon.name)
+        return -1
     
     return MOVES.index(attack)
 
@@ -211,6 +214,7 @@ def damage_calculator(attacking_mon, defending_mon):
 def basic_attack(attacking_mon, defending_mon):
     if random.random() < 0.9:
         total_dmg = damage_calculator(attacking_mon, defending_mon)
+        total_dmg = round(total_dmg)
         defending_mon.damage(total_dmg)
     else:
         print("Basic-Attack missed.")
@@ -230,18 +234,22 @@ def heal(attacking_mon, defending_mon):
 def blind_rage(attacking_mon, defending_mon):
     if random.random() < 0.5:
         total_dmg = damage_calculator(attacking_mon, defending_mon) * 3
+        total_dmg = round(total_dmg)
         defending_mon.damage(total_dmg)
     else:
         total_dmg = damage_calculator(attacking_mon, attacking_mon) * 3
+        total_dmg = round(total_dmg)
         attacking_mon.damage(total_dmg)
 
-def leech_atack(attacking_mon, defending_mon):
+def leech_attack(attacking_mon, defending_mon):
     total_dmg = damage_calculator(attacking_mon, defending_mon) * 0.25
+    total_dmg = round(total_dmg)
     defending_mon.damage(total_dmg)
     attacking_mon.heal(total_dmg)
 
 def thundershock(attacking_mon, defending_mon):
     total_dmg = damage_calculator(attacking_mon, defending_mon) * 0.75
+    total_dmg = round(total_dmg)
     defending_mon.damage(total_dmg)
 
 def fissure(attacking_mon, defending_mon):
@@ -250,7 +258,7 @@ def fissure(attacking_mon, defending_mon):
     else:
         print("Fissure failed.")
 
-move_functions = [basic_attack, attack_up, defend, heal, blind_rage, leech_atack, thundershock, fissure]
+move_functions = [basic_attack, attack_up, defend, heal, blind_rage, leech_attack, thundershock, fissure]
 
 def play_turn(mon1_move, mon2_move):
     # verify who is faster
@@ -327,7 +335,11 @@ def play(current_player):
                     if len(command) == 2:
                         if current_player == 1: mon = mon1
                         else: mon = mon2
-                        return use(mon, command[1])
+                        move_used = use(mon, command[1])
+
+                        if move_used != -1:
+                            return move_used
+                        
                     else:
                         print("Unrecognized command. Use help command to display available commands.")
                 else:
@@ -366,7 +378,7 @@ if __name__ == "__main__":
 
     else:
         print("Invalid input")
-        exit
+        quit()
 
     mon1 = Mon("RandMon1")
     mon2 = Mon("RandMon2")
@@ -405,6 +417,7 @@ if __name__ == "__main__":
                 p2_move = MOVES.index(p2_move)
 
             winner = play_turn(p1_move, p2_move)
+            
             if winner != 0:
                 print("Player " + str(winner) + "wins!")
 

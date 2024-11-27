@@ -1,0 +1,9 @@
+Game started
+Player1's turn
+Write your command: 
+Attack cannot be used. Choose a valid attack.
+basic-attack - A simple attack with a 90% chance to hit.
+defend - Halves the damage the mon receives this round. Is always added to the damage calculation, regardless of the speed stat.
+leech-attack - Attack with 1/4 damage, but gain it as health points.
+fissure - Attack that can instantly defeat the other mon, but only has a 5% chance of hitting its objective.
+Write your command: 

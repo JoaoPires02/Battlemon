@@ -9,3 +9,5 @@ Mon: nikachu Type: Normal Hp: 560 Attack: 256 Defense: 100 Speed: 365 Moves: bas
 Write your command: 
 Error: Mon doesn't exist.
 Write your command: 
+Unrecognized command. Use help command to display available commands.
+Write your command: 

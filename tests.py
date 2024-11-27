@@ -30,9 +30,15 @@ def run_all_tests():
     run_test(cmd2, 6)
     run_test(cmd2, 7)
     run_test(cmd2, 8)
+    run_test(cmd, 9)
+    run_test(cmd, 10)
+    run_test(cmd3, 11)
+    run_test(cmd, 12)
+    run_test(cmd, 13)
 
 cmd = ["python", "battlemon.py", "n", "charizord.json", "nikachu.json"]
 cmd2 = ["python", "battlemon.py", "n"]
+cmd3 = ["python", "battlemon.py", "charizord.json", "nikachu.json"]
 
 run_all_tests()
 

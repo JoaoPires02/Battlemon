@@ -2,4 +2,5 @@ movelist
 movelist RandMon1
 movelist RandMon2
 movelist abcd
+movelist RandMon1 a
 quit
