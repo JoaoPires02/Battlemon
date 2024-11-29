@@ -4,4 +4,6 @@ status
 use heal
 use basic-attack
 status
+use heal
+use defend
 quit

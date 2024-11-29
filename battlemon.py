@@ -228,8 +228,9 @@ def defend(attacking_mon, defending_mon):
 def heal(attacking_mon, defending_mon):
     if not attacking_mon.heal_used:
         attacking_mon.heal(attacking_mon.hp)
+        attacking_mon.heal_used = True
     else:
-        print("Heal already used.")
+        print(attacking_mon.name + " used heal already.")
 
 def blind_rage(attacking_mon, defending_mon):
     if random.random() < 0.5:

@@ -50,6 +50,7 @@ cmd5 = ["python", "battlemon.py", "n", "charizord.json", "nikachu.json", "1"]
 cmd6 = ["python", "battlemon.py", "n", "balastoise.json", "nikachu.json", "1"]
 
 
-run_test(cmd6, 19)
+#run_all_tests()
+run_test(cmd4, 18)
 
 print("All tests passed.")
