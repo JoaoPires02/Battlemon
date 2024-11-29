@@ -109,7 +109,7 @@ class Mon:
 
     def damage(self, damage_taken):
         if (self.defend == True):
-            damage_taken = damage_taken / 2
+            damage_taken = round(damage_taken / 2)
         self.current_hp -= damage_taken
         if self.current_hp < 0:
             self.current_hp = 0
@@ -217,7 +217,7 @@ def basic_attack(attacking_mon, defending_mon):
         total_dmg = round(total_dmg)
         defending_mon.damage(total_dmg)
     else:
-        print("Basic-Attack missed.")
+        print(attacking_mon.name + " missed basic-attack.")
     
 def attack_up(attacking_mon, defending_mon):
     attacking_mon.attack_up = 2
@@ -237,6 +237,7 @@ def blind_rage(attacking_mon, defending_mon):
         total_dmg = round(total_dmg)
         defending_mon.damage(total_dmg)
     else:
+        print(attacking_mon.name + " missed blind-rage.")
         total_dmg = damage_calculator(attacking_mon, attacking_mon) * 3
         total_dmg = round(total_dmg)
         attacking_mon.damage(total_dmg)
@@ -254,9 +255,9 @@ def thundershock(attacking_mon, defending_mon):
 
 def fissure(attacking_mon, defending_mon):
     if random.random() < 0.05:
-        defending_mon.damage(defending_mon.hp)
+        defending_mon.current_hp = 0
     else:
-        print("Fissure failed.")
+        print(attacking_mon.name + " missed fissure.")
 
 move_functions = [basic_attack, attack_up, defend, heal, blind_rage, leech_attack, thundershock, fissure]
 
@@ -291,9 +292,9 @@ def play_turn(mon1_move, mon2_move):
     mon2.defend = False
 
     if mon1.attack_up > 0:
-        mon1.attackup -= 1
+        mon1.attack_up -= 1
     if mon2.attack_up > 0:
-        mon2.attackup -= 1
+        mon2.attack_up -= 1
 
     return 0
 
@@ -348,7 +349,7 @@ def play(current_player):
             case "surrender":
                 if (winner == 0):
                     surrender(current_player)
-                    return 1
+                    return "surrend"
                 else:
                     print("Game is not in progress.")
 
@@ -357,7 +358,7 @@ def play(current_player):
 
             case "restart":
                 restart()
-                return 2
+                return "restart"
 
             case _:
                 print("Unrecognized command. Use help command to display available commands.")
@@ -388,6 +389,10 @@ if __name__ == "__main__":
     if len(args) > 2:
         mon2.import_mon(args[2])
 
+    #Added for testing purposes
+    if len(args) > 3:
+        random.seed(args[3])
+
     mon1_restart = mon1
     mon2_restart = mon2
             
@@ -397,19 +402,19 @@ if __name__ == "__main__":
         winner = 0
         while winner == 0:
             p1_move = play(1)
-            if p1_move == 1:
+            if p1_move == "surrend":
                 winner = 2
                 break
             
-            elif p1_move == 2:
+            elif p1_move == "restart":
                 continue
 
             if against_cpu == False:
                 p2_move = play(2)
-                if p2_move == 1:
+                if p2_move == "surrend":
                     winner = 1
                     break
-                elif p1_move == 2:
+                elif p1_move == "restart":
                     continue
             else:
                 #random cpu move
@@ -419,6 +424,6 @@ if __name__ == "__main__":
             winner = play_turn(p1_move, p2_move)
             
             if winner != 0:
-                print("Player " + str(winner) + "wins!")
+                print("Player " + str(winner) + " wins!")
 
         play(1)

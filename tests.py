@@ -35,11 +35,21 @@ def run_all_tests():
     run_test(cmd3, 11)
     run_test(cmd, 12)
     run_test(cmd, 13)
+    run_test(cmd, 14)
+    run_test(cmd, 15)
+    run_test(cmd4, 16)
+    run_test(cmd5, 17)
+    run_test(cmd4, 18)
+    run_test(cmd6, 19)
 
 cmd = ["python", "battlemon.py", "n", "charizord.json", "nikachu.json"]
 cmd2 = ["python", "battlemon.py", "n"]
 cmd3 = ["python", "battlemon.py", "charizord.json", "nikachu.json"]
+cmd4 = ["python", "battlemon.py", "n", "balastoise.json", "nikachu.json"]
+cmd5 = ["python", "battlemon.py", "n", "charizord.json", "nikachu.json", "1"]
+cmd6 = ["python", "battlemon.py", "n", "balastoise.json", "nikachu.json", "1"]
 
-run_all_tests()
+
+run_test(cmd6, 19)
 
 print("All tests passed.")

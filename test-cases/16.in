@@ -1,0 +1,7 @@
+use attack-up
+use basic-attack
+status
+use basic-attack
+use basic-attack
+status
+quit

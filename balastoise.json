@@ -1,0 +1,14 @@
+{
+    "Name": "balastoise",
+    "Type": "Water",
+    "Hp": 1000,
+    "Attack": 420,
+    "Defense": 50,
+    "Speed": 250,
+    "Moves": [
+    { "Name": "basic-attack" },
+    { "Name": "attack-up" },
+    { "Name": "heal" },
+    { "Name": "blind-rage" }
+    ]
+}
