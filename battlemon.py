@@ -419,7 +419,6 @@ if __name__ == "__main__":
                 elif p2_move == "restart":
                     continue
             else:
-                #random cpu move
                 p2_move = MOVES.index("basic-attack")
 
             winner = play_turn(p1_move, p2_move)
