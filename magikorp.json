@@ -1,0 +1,14 @@
+{
+    "Name": "magikorp",
+    "Type": "Water",
+    "Hp": 1,
+    "Attack": 10000,
+    "Defense": 1,
+    "Speed": 1000,
+    "Moves": [
+    { "Name": "basic-attack" },
+    { "Name": "attack-up" },
+    { "Name": "heal" },
+    { "Name": "blind-rage" }
+    ]
+}

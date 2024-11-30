@@ -289,6 +289,7 @@ def play_turn(mon1_move, mon2_move):
         if mon1.current_hp == 0: return 2
         if mon2.current_hp == 0: return 1
 
+
     mon1.defend = False
     mon2.defend = False
 
@@ -415,12 +416,11 @@ if __name__ == "__main__":
                 if p2_move == "surrend":
                     winner = 1
                     break
-                elif p1_move == "restart":
+                elif p2_move == "restart":
                     continue
             else:
                 #random cpu move
-                p2_move = random.sample(mon2.moves ,1)
-                p2_move = MOVES.index(p2_move)
+                p2_move = MOVES.index("basic-attack")
 
             winner = play_turn(p1_move, p2_move)
             

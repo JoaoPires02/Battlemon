@@ -41,6 +41,22 @@ def run_all_tests():
     run_test(cmd5, 17)
     run_test(cmd4, 18)
     run_test(cmd6, 19)
+    run_test(cmd7, 20)
+    run_test(cmd8, 21)
+    run_test(cmd10, 22)
+    run_test(cmd10, 23)
+    run_test(cmd10, 24)
+    run_test(cmd13, 25)
+    run_test(cmd11, 26)
+    run_test(cmd12, 27)
+    run_test(cmd12, 28)
+    run_test(cmd8, 29)
+    run_test(cmd9, 30)
+    run_test(cmd, 31)
+    run_test(cmd8, 32)
+    run_test(cmd8, 33)
+    run_test(cmd12, 34)
+
 
 cmd = ["python", "battlemon.py", "n", "charizord.json", "nikachu.json"]
 cmd2 = ["python", "battlemon.py", "n"]
@@ -48,9 +64,15 @@ cmd3 = ["python", "battlemon.py", "charizord.json", "nikachu.json"]
 cmd4 = ["python", "battlemon.py", "n", "balastoise.json", "nikachu.json"]
 cmd5 = ["python", "battlemon.py", "n", "charizord.json", "nikachu.json", "1"]
 cmd6 = ["python", "battlemon.py", "n", "balastoise.json", "nikachu.json", "1"]
+cmd7 = ["python", "battlemon.py", "n", "veinosaur.json", "nikachu.json"]
+cmd8 = ["python", "battlemon.py", "n", "veinosaur.json", "charizord.json"]
+cmd9 = ["python", "battlemon.py", "y", "veinosaur.json", "charizord.json"]
+cmd10 = ["python", "battlemon.py", "n", "magikorp.json", "nikachu.json"]
+cmd11 = ["python", "battlemon.py", "n", "nikachu.json", "magikorp.json"]
+cmd12 = ["python", "battlemon.py", "n", "feeboss.json", "magikorp.json"]
+cmd13 = ["python", "battlemon.py", "n", "magikorp.json", "feeboss.json"]
 
+run_all_tests()
 
-#run_all_tests()
-run_test(cmd4, 18)
 
 print("All tests passed.")

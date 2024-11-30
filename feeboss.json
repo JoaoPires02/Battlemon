@@ -1,0 +1,14 @@
+{
+    "Name": "feeboss",
+    "Type": "Normal",
+    "Hp": 1,
+    "Attack": 10000,
+    "Defense": 1,
+    "Speed": 1,
+    "Moves": [
+    { "Name": "basic-attack" },
+    { "Name": "attack-up" },
+    { "Name": "heal" },
+    { "Name": "blind-rage" }
+    ]
+}

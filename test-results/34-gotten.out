@@ -1,0 +1,8 @@
+Game started
+Player1's turn
+Write your command: 
+basic-attack - A simple attack with a 90% chance to hit.
+attack-up - Doubles the damage the mon deals next round.
+heal - Restore health points.Can only be used once in a battle.
+blind-rage - Attack with triple damage, but 50% chance to hit itself instead.
+Write your command: 

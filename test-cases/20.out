@@ -1,0 +1,14 @@
+Game started
+Player1's turn
+Write your command: 
+Unrecognized command. Use help command to display available commands.
+Write your command: 
+Player2's turn
+Write your command: 
+basic-attack - A simple attack with a 90% chance to hit.
+defend - Halves the damage the mon receives this round. Is always added to the damage calculation, regardless of the speed stat.
+thundershock - Attack with 3/4 damage, never misses.
+attack-up - Doubles the damage the mon deals next round.
+Write your command: 
+Mon: nikachu Type: Normal Hp: 560 Attack: 256 Defense: 100 Speed: 365 Moves: basic-attack, defend, thundershock, attack-up
+Write your command: 
