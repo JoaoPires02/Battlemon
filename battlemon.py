@@ -1,6 +1,7 @@
 import random
 import json
 import sys
+sys.stdout.reconfigure(encoding="utf-8")
 
 TYPE_NORMAL = 0
 TYPE_FIRE = 1
@@ -98,14 +99,21 @@ class Mon:
             mon_data = json.load(file)
             self.name = mon_data["Name"]
             self.type = get_type_id(mon_data["Type"])
+            if (self.type == None):
+                print("Error: " + self.name + " has incorrect type.")
+                quit()
             self.hp = mon_data["Hp"]
             self.current_hp = self.hp
             self.attack = mon_data["Attack"]
             self.defense = mon_data["Defense"]
             self.speed = mon_data["Speed"]
             self.moves = []
-            for e in mon_data["Moves"]:
-                self.moves += [e["Name"]]
+            for move in mon_data["Moves"]:
+                move_id = get_move_id(move["Name"])
+                if (move_id == None):
+                    print("Error: " + self.name + " has an incorrect move.")
+                    quit()
+                self.moves.append(move["Name"])
 
     def damage(self, damage_taken):
         if (self.defend == True):

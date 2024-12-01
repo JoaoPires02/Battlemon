@@ -1,0 +1,14 @@
+{
+    "Name": "momon",
+    "Type": "Grass",
+    "Hp": 1000,
+    "Attack": 420,
+    "Defense": 50,
+    "Speed": 250,
+    "Moves": [
+    { "Name": "wrong-attack" },
+    { "Name": "fissure" },
+    { "Name": "thundershock" },
+    { "Name": "blind-rage" }
+    ]
+}

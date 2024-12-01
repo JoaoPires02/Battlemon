@@ -4,7 +4,7 @@ import battlemon
 
 def run_test(cmd, t):
     t = str(t)
-    with open("test-cases/"+t+".in", "r") as infile, open("test-cases/"+t+".out", "r") as outfile:
+    with open("test-cases/" + t + ".in", "r") as infile, open("test-cases/" + t + ".out", "r") as outfile:
         expected_output = outfile.read()
 
         result = subprocess.run(
@@ -56,6 +56,8 @@ def run_all_tests():
     run_test(cmd8, 32)
     run_test(cmd8, 33)
     run_test(cmd12, 34)
+    run_test(cmd14, 35)
+    run_test(cmd15, 36)
 
 
 cmd = ["python", "battlemon.py", "n", "charizord.json", "nikachu.json"]
@@ -71,8 +73,9 @@ cmd10 = ["python", "battlemon.py", "n", "magikorp.json", "nikachu.json"]
 cmd11 = ["python", "battlemon.py", "n", "nikachu.json", "magikorp.json"]
 cmd12 = ["python", "battlemon.py", "n", "feeboss.json", "magikorp.json"]
 cmd13 = ["python", "battlemon.py", "n", "magikorp.json", "feeboss.json"]
+cmd14 = ["python", "battlemon.py", "n", "tymon.json", "magikorp.json"]
+cmd15 = ["python", "battlemon.py", "n", "veinosaur.json", "momon.json"]
 
 run_all_tests()
-
 
 print("All tests passed.")
